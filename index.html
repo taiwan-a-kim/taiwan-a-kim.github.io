@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kim 阿金的生命旅程 | 從黑暗到光明</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-gradient: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            --text-primary: #e8e8e8;
+            --text-secondary: #a0a0a0;
+            --accent-red: #c41e3a;
+            --accent-gold: #d4af37;
+            --accent-blue: #4a90d9;
+            --accent-hope: #64b5f6;
+            --shadow-dark: rgba(0, 0, 0, 0.8);
+            --glow-red: rgba(196, 30, 58, 0.3);
+            --glow-gold: rgba(212, 175, 55, 0.4);
+            --glow-blue: rgba(74, 144, 217, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 70%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, var(--glow-red) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, var(--glow-blue) 0%, transparent 40%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-gold) 50%, var(--accent-hope) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleReveal 2s ease-out;
+        }
+
+        @keyframes titleReveal {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: subtitleReveal 2s ease-out 0.3s backwards;
+        }
+
+        @keyframes subtitleReveal {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero .name-meaning {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: meaningReveal 2s ease-out 0.6s backwards;
+        }
+
+        @keyframes meaningReveal {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .name-char {
+            text-align: center;
+        }
+
+        .name-char .char {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .name-char:nth-child(1) .char { color: var(--accent-gold); }
+        .name-char:nth-child(2) .char { color: var(--accent-hope); }
+
+        .name-char .meaning {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 150px;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-hint svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--text-secondary);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 2rem;
+            background: var(--bg-gradient);
+            position: relative;
+        }
+
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title h2 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Timeline Container */
+        .timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                var(--accent-red) 0%, 
+                var(--accent-red) 30%,
+                #666 50%,
+                var(--accent-blue) 70%,
+                var(--accent-gold) 100%
+            );
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+        }
+
+        /* Timeline Item */
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+            transform: translateX(50px);
+        }
+
+        .timeline-item:nth-child(even).visible {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                padding-left: 50px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+        }
+
+        /* Timeline Dot */
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 4px solid var(--accent-red);
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: translateX(-50%) scale(1.3);
+            box-shadow: 0 0 20px var(--glow-red);
+        }
+
+        .timeline-item.phase-dark .timeline-dot {
+            border-color: var(--accent-red);
+        }
+
+        .timeline-item.phase-transition .timeline-dot {
+            border-color: #888;
+        }
+
+        .timeline-item.phase-light .timeline-dot {
+            border-color: var(--accent-blue);
+        }
+
+        .timeline-item.phase-golden .timeline-dot {
+            border-color: var(--accent-gold);
+        }
+
+        .timeline-item:hover.phase-dark .timeline-dot {
+            box-shadow: 0 0 20px var(--glow-red);
+        }
+
+        .timeline-item:hover.phase-light .timeline-dot {
+            box-shadow: 0 0 20px var(--glow-blue);
+        }
+
+        .timeline-item:hover.phase-golden .timeline-dot {
+            box-shadow: 0 0 20px var(--glow-gold);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+
+        /* Timeline Content */
+        .timeline-content {
+            background: linear-gradient(135deg, rgba(30, 30, 50, 0.9) 0%, rgba(20, 20, 35, 0.95) 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 450px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-item.phase-dark .timeline-content {
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .timeline-item.phase-transition .timeline-content {
+            border-left: 4px solid #666;
+        }
+
+        .timeline-item.phase-light .timeline-content {
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .timeline-item.phase-golden .timeline-content {
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            border-left: none;
+        }
+
+        .timeline-item:nth-child(even).phase-dark .timeline-content {
+            border-right: 4px solid var(--accent-red);
+        }
+
+        .timeline-item:nth-child(even).phase-transition .timeline-content {
+            border-right: 4px solid #666;
+        }
+
+        .timeline-item:nth-child(even).phase-light .timeline-content {
+            border-right: 4px solid var(--accent-blue);
+        }
+
+        .timeline-item:nth-child(even).phase-golden .timeline-content {
+            border-right: 4px solid var(--accent-gold);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item:nth-child(even) .timeline-content {
+                border-right: none;
+                border-left: 4px solid;
+            }
+            .timeline-item:nth-child(even).phase-dark .timeline-content {
+                border-left-color: var(--accent-red);
+            }
+            .timeline-item:nth-child(even).phase-transition .timeline-content {
+                border-left-color: #666;
+            }
+            .timeline-item:nth-child(even).phase-light .timeline-content {
+                border-left-color: var(--accent-blue);
+            }
+            .timeline-item:nth-child(even).phase-golden .timeline-content {
+                border-left-color: var(--accent-gold);
+            }
+        }
+
+        .timeline-age {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-dark .timeline-age { color: var(--accent-red); }
+        .phase-transition .timeline-age { color: #888; }
+        .phase-light .timeline-age { color: var(--accent-blue); }
+        .phase-golden .timeline-age { color: var(--accent-gold); }
+
+        .timeline-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .timeline-quote {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            font-style: italic;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .timeline-quote::before {
+            content: '"';
+            font-family: 'Noto Serif TC', serif;
+            font-size: 3rem;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
+
+        /* Icon badges */
+        .event-icon {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .phase-dark .event-icon { background: var(--accent-red); }
+        .phase-transition .event-icon { background: #555; }
+        .phase-light .event-icon { background: var(--accent-blue); }
+        .phase-golden .event-icon { background: var(--accent-gold); }
+
+        /* Message Section */
+        .message-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, #16213e 0%, #0a0a0f 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--glow-gold) 0%, transparent 70%);
+            opacity: 0.5;
+        }
+
+        .message-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .message-content h2 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .message-content p {
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .message-content .highlight {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .pillar {
+            background: rgba(30, 30, 50, 0.8);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .pillar:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 40px var(--glow-gold);
+        }
+
+        .pillar-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pillar h3 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer .final-quote {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Kim 阿金的生命旅程</h1>
+            <p class="subtitle">從至暗時刻到照亮他人的光</p>
+            <div class="name-meaning">
+                <div class="name-char">
+                    <span class="char">晨</span>
+                    <span class="meaning">黎明、清晨<br>黑暗後的曙光</span>
+                </div>
+                <div class="name-char">
+                    <span class="char">皓</span>
+                    <span class="meaning">皓月、光明<br>照亮別人的人</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="section-title fade-in">
+            <h2>生命的軌跡</h2>
+            <p>每一段經歷，都成就了現在的我</p>
+        </div>
+
+        <div class="timeline">
+            <!-- Birth -->
+            <div class="timeline-item phase-dark">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">⚡</span>
+                    <span class="timeline-age">誕生</span>
+                    <h3 class="timeline-title">在黑暗中誕生的光</h3>
+                    <p class="timeline-description">
+                        出生那天，整棟醫院停電。父親遠在美國黃石公園帶團，母親獨自面對一切。
+                        被取名「黃晨皓」——期望成為能照亮別人、光明磊落的人。
+                    </p>
+                    <div class="timeline-quote">
+                        阿嬤說：這個傢伙怎麼長得像小老鼠。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Early Childhood -->
+            <div class="timeline-item phase-dark">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">🧸</span>
+                    <span class="timeline-age">0-5歲</span>
+                    <h3 class="timeline-title">極度沒有自信的孩子</h3>
+                    <p class="timeline-description">
+                        母親懷孕時承受著照顧年幼哥哥、腳斷的阿嬤、年邁阿公的壓力，
+                        造就了一個對人極度依賴、缺乏安全感的孩子。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Mom's basket -->
+            <div class="timeline-item phase-dark">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">🧵</span>
+                    <span class="timeline-age">童年</span>
+                    <h3 class="timeline-title">衣服籃子裡的安全感</h3>
+                    <p class="timeline-description">
+                        躲在母親車衣服的籃子裡，像禰豆子一樣蜷縮著，
+                        一邊幫忙剪線頭，一邊感受與母親最近的距離。
+                        那是最有安全感的時刻。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Lying and Stealing -->
+            <div class="timeline-item phase-dark">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">🎭</span>
+                    <span class="timeline-age">童年</span>
+                    <h3 class="timeline-title">說謊與偷竊的開始</h3>
+                    <p class="timeline-description">
+                        說實話會被打，所以學會了說謊。得不到想要的東西，所以學會了偷竊。
+                        這是一條錯誤的路徑，卻意外培養了「鑽洞」的技巧。
+                    </p>
+                    <div class="timeline-quote">
+                        後來才明白：很多現在的技能，底層來自於不光彩的地方。
+                    </div>
+                </div>
+            </div>
+
+            <!-- First suicide attempt -->
+            <div class="timeline-item phase-dark">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">💧</span>
+                    <span class="timeline-age">國小</span>
+                    <h3 class="timeline-title">水池邊的第一次</h3>
+                    <p class="timeline-description">
+                        沒來由地走進水池深處，直到一個釣魚的阿伯叫住了他。
+                        醒來時不知道自己在幹嘛，全身濕透坐在岸邊。
+                        打給認識三十多年的好友，得到了救命的回應。
+                    </p>
+                    <div class="timeline-quote">
+                        「你幹嘛？人活得好好的，為什麼要做這件事情？不然讓我看漫畫。」
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skating -->
+            <div class="timeline-item phase-transition">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">⛸️</span>
+                    <span class="timeline-age">國小-國中</span>
+                    <h3 class="timeline-title">母親的鼓勵：你要不要試一試？</h3>
+                    <p class="timeline-description">
+                        母親每次跌倒，都會問一句：「你要不要試一試？」
+                        從未放棄。於是開始溜冰，成為選手，玩極限運動。
+                        這句話成為人生中嘗試新事物的動力。
+                    </p>
+                </div>
+            </div>
+
+            <!-- High School -->
+            <div class="timeline-item phase-dark">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">🎓</span>
+                    <span class="timeline-age">高中</span>
+                    <h3 class="timeline-title">私立學校與家庭變故</h3>
+                    <p class="timeline-description">
+                        國中畢業沒有高中要收，母親走後門進了貴族私立學校。
+                        同時父親失業、公司倒閉、被騙錢。
+                        想學設計卻因為學費太貴而放棄。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Second attempt -->
+            <div class="timeline-item phase-dark">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">🩹</span>
+                    <span class="timeline-age">高中</span>
+                    <h3 class="timeline-title">手上的刺青</h3>
+                    <p class="timeline-description">
+                        第二次想結束自己。手上的刺青，都是為了遮住刀疤。
+                        那時候需要通過很多複雜的方式，來確認自己是活著的。
+                    </p>
+                    <div class="timeline-quote">
+                        我要確認自己是不是活著的這件事情，是不是對的。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement -->
+            <div class="timeline-item phase-transition">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">🏆</span>
+                    <span class="timeline-age">高中</span>
+                    <h3 class="timeline-title">市長獎畢業</h3>
+                    <p class="timeline-description">
+                        為了減輕家裡負擔，每年都是全校前三名。
+                        同時是熱舞社社長。用成就來驗證自己值得活著。
+                    </p>
+                </div>
+            </div>
+
+            <!-- University -->
+            <div class="timeline-item phase-transition">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">💼</span>
+                    <span class="timeline-age">大學</span>
+                    <h3 class="timeline-title">創業與破產</h3>
+                    <p class="timeline-description">
+                        大學創業賺了錢，卻開始用價格定義人，而非價值。
+                        賺錢速度比父親還快，導致與父親關係惡化。
+                        最終破產，但找到了「鑽洞」的天賦。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Military -->
+            <div class="timeline-item phase-dark">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">📝</span>
+                    <span class="timeline-age">當兵期間</span>
+                    <h3 class="timeline-title">過度反思的深淵</h3>
+                    <p class="timeline-description">
+                        在無印良品的筆記本上寫下幾百條反思。
+                        本以為是很厲害的技能，卻點燃了否定自己存在的火焰。
+                        反思日記變成了否定日記，越寫越往下墜。
+                    </p>
+                    <div class="timeline-quote">
+                        過度反思會導致人死掉。我走過來才能告訴你，真的不要往那裡走。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Depression -->
+            <div class="timeline-item phase-dark">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">🌑</span>
+                    <span class="timeline-age">退伍後</span>
+                    <h3 class="timeline-title">憂鬱症大爆發</h3>
+                    <p class="timeline-description">
+                        完全不想睡覺、不會累、不會餓。對日與夜沒有概念。
+                        失去了說話的能力，躲在五坪大的房間裡，不知道過了多久。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Meeting Wife -->
+            <div class="timeline-item phase-light">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">💙</span>
+                    <span class="timeline-age">轉捩點</span>
+                    <h3 class="timeline-title">遇見她</h3>
+                    <p class="timeline-description">
+                        在 Facebook 上沒來由地搭訕了她。從那天開始，
+                        突然會想睡覺、突然覺得累、突然肚子會餓。
+                        第一次約會醒來，問的第一句話是：「你怎麼還在這裡？」
+                    </p>
+                    <div class="timeline-quote">
+                        她救了我的命。我對她的感謝，是真的救了我的命的那種感謝。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wife's acceptance -->
+            <div class="timeline-item phase-light">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">🤝</span>
+                    <span class="timeline-age">相處</span>
+                    <h3 class="timeline-title">她接受了全部的過去</h3>
+                    <p class="timeline-description">
+                        坦承了一切：說謊、偷竊、傷害過很多人、濫情。
+                        她說：「那些都是過去了。你沒有這些過去，怎麼會有現在的你？
+                        我跟你還有很多未來要去。」
+                    </p>
+                </div>
+            </div>
+
+            <!-- Now -->
+            <div class="timeline-item phase-golden">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">☀️</span>
+                    <span class="timeline-age">30-40歲</span>
+                    <h3 class="timeline-title">成為現在的 Kim 阿金</h3>
+                    <p class="timeline-description">
+                        變成正常人。創辦 PopDaily 波波黛莉，成為內容型網站連續創業家。
+                        建立了四大支柱：閱讀、工作、運動、陪家人。
+                        學會了切換不同的自己，把黑暗中練就的技能轉化為幫助他人的能力。
+                    </p>
+                    <div class="timeline-quote">
+                        你們現在看到的我，是因為她讓我活到這裡。
+                        她是土壤，我是樹。你們謝謝樹，但真正讓樹長大的是土壤。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 小巨蛋 -->
+            <div class="timeline-item phase-golden">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="event-icon">🏟️</span>
+                    <span class="timeline-age">2026.07.01</span>
+                    <h3 class="timeline-title">站上小巨蛋</h3>
+                    <p class="timeline-description">
+                        從出生時醫院停電的那個小老鼠，到站上台北小巨蛋的舞台。
+                        從至暗時刻走出來的人，現在正在照亮更多人的生命。
+                        這不是終點，而是新的起點。
+                    </p>
+                    <div class="timeline-quote">
+                        未來會改變過去。只要你決定往前走，現在的你就是當初的未來。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message-section">
+        <div class="message-content fade-in">
+            <h2>給你們的話</h2>
+            <p>
+                我一直不需要你很<span class="highlight">完美</span>，<br>
+                但我需要你很<span class="highlight">完整</span>。
+            </p>
+            <p>
+                展現你的不完美，接納這個世界上也有人跟你一樣不完美。<br>
+                一旦你展現的是完整而不是完美，所有人都會朝你狂奔。
+            </p>
+
+            <div class="pillars">
+                <div class="pillar">
+                    <div class="pillar-icon">📚</div>
+                    <h3>閱讀</h3>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">💼</div>
+                    <h3>工作</h3>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🏃</div>
+                    <h3>運動</h3>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">👨‍👩‍👧</div>
+                    <h3>陪家人</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="final-quote">
+            「不要放棄你的想像力。<br>
+            把行動切成你可以承受的片段，用結果來驗證。<br>
+            周而復始，你的人生就會越來越好。」
+        </p>
+        <p>黃晨皓 Kim（阿金）的生命故事 | 從黑暗到光明的旅程</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all timeline items and fade-in elements
+        document.querySelectorAll('.timeline-item, .fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for hero hint
+        document.querySelector('.scroll-hint').addEventListener('click', () => {
+            document.querySelector('.timeline-section').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+
+        // Add staggered animation delay to timeline items
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
